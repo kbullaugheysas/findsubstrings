@@ -109,6 +109,9 @@ func main() {
 	lineNum = 0
 	totalMatches := 0
 	for inputScanner.Scan() {
+		if lineNum > 0 && lineNum%1000000 == 0 {
+			log.Println(lineNum)
+		}
 		line := inputScanner.Text()
 		//log.Printf("line %d: %s\n", lineNum, line)
 		for offset := 0; offset+args.K <= len(line); offset += args.K {
